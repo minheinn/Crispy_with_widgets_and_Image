@@ -8,17 +8,27 @@
                   <th scope="col">Name</th>
                   <th scope="col">Email</th>
                   <th scope="col">Age</th>
-                  <th scope="col">Bio</th>
+                  <th scope="col">Image</th>
                   <th scope="col">Action</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                </tr>
+                {% for person in persons %}
+                  <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{person.name}}</td>
+                    <td>{{person.email}}</td>
+                    <td>{{person.age}}</td>
+                    <td>
+                      <img src="{{person.image.url}}" alt="" style="width: 30px; height: 30px;">
+                    </td>
+                    <td>
+                      <a href="" class="btn btn-info btn-sm">View</a>
+                      <a href="{% url 'update_person' person.id %}" class="btn btn-primary btn-sm">Edit</a>
+                      <a href="{% url 'delete_person' person.id %}" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                  </tr>
+                {% endfor %}
               </tbody>
         </table>
     </div>
