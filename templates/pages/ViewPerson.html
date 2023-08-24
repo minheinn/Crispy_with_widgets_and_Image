@@ -1,0 +1,20 @@
+{% extends 'layouts/main.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class='container mt-5'>
+    <div class="row">
+        <div class="col-md-6">
+            <p> <strong>Name: </strong> {{person.name}}</p>
+            <p> <strong>Age: </strong> {{person.age}}</p>
+            <p> <strong>Bio: </strong> {{person.bio | safe}}</p>
+        </div>
+        <div class="col-md-6">
+            <img src="{{person.image.url}}"></img>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
+

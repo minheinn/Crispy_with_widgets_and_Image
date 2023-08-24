@@ -32,6 +32,11 @@ def UpdatePerson(request, pk):
     context = {'person':person, 'forms':forms}
     return render(request, 'pages/UpdatePerson.html', context)
 
+def ViewPerson(request, pk):
+    person = Person.objects.get(id=pk)
+    context = {'person':person}
+    return render(request, 'pages/ViewPerson.html', context)
+
 def DeletePerson(request, pk):
     person = Person.objects.get(id=pk)
     if request.method == "POST":
