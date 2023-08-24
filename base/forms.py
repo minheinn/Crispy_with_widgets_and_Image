@@ -10,5 +10,5 @@ class PersonForm(forms.ModelForm):
             "email":forms.EmailInput(attrs=({'placeholder':"Enter Your Email..."})),
             "bio":forms.Textarea(attrs=({'placeholder':"Enter Your Bio..."})),
             "age":forms.NumberInput(attrs=({'placeholder':"Enter Your Age..."})),
-            'image':forms.FileInput(attrs=({"placeholder":"Image"})),
+            'image':forms.FileInput(attrs=({"placeholder":"Image", "id":"image", "onchange":"getImagePreview(event)"})),
         }

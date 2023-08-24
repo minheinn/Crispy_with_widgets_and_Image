@@ -33,9 +33,10 @@ def UpdatePerson(request, pk):
     return render(request, 'pages/UpdatePerson.html', context)
 
 def DeletePerson(request, pk):
-    persons = Person.objects.all()
     person = Person.objects.get(id=pk)
-    person.delete()
+    if request.method == "POST":
+        person.delete()
+        return redirect('show_person')
     messages.success(request, "Delete Person is successfully!")
-    context = {'persons':persons, 'person':person}
-    return render(request, 'pages/index.html', context)
+    context = {'person':person}
+    return render(request, 'pages/DeletePerson.html', context)

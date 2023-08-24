@@ -17,12 +17,29 @@
             <div class="col-md-6">
                 {{ forms.image|as_crispy_field }}
             </div>
-            <output id="imageOutput" style="height:200px" class="mb-1"></output>
+            <div class="col-md-6">
+                {{ forms.media }}
+                {{ forms.bio|as_crispy_field }}
+            </div>
+            <div class="col-md-6" id="preview"></div>
+            <div class="col-md-6"></div>
         </div>
-        {{ forms.bio|as_crispy_field }}
         <button class="btn btn-primary btn-sm" type='submit'>Update Person</button>
     </form>
 </div>
+
+<script>
+    function getImagePreview(event)
+    {
+        var image = URL.createObjectURL(event.target.files[0]);
+        var imagediv = document.getElementById('preview');
+        var newimg = document.createElement('img');
+        imagediv.innerHTML = '';
+        newimg.src = image;
+        newimg.width = "300";
+        imagediv.appendChild(newimg);
+    }
+</script>
 
 
 {% endblock content %}

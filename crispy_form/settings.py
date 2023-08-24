@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'base', #new
     'crispy_forms',
     "crispy_bootstrap5",
+    'ckeditor',
      
 ]
 
